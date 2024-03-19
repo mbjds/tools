@@ -2,6 +2,11 @@
 
 wpath=$(pwd)
 
+if ! command -v wp &> /dev/null; then
+    echo "WP CLI not found. Please install it and run the script again."
+    exit 1
+fi
+
 if [ ! -e "$wpath/wp-config.php" ]; then
     echo "Provide Full path to wordpress installation directory: (default: $wpath/public_html/) "
     read -r wpathn
